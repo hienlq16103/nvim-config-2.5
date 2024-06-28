@@ -15,6 +15,7 @@ local servers = {
   "texlab",
   "taplo",
   "markdown_oxide",
+  "jdtls",
 }
 
 -- lsps with default config

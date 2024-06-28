@@ -19,9 +19,9 @@ return {
     end,
   },
   {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
         "lua-language-server",
         "clangd",
         "clang-format",
@@ -37,14 +37,14 @@ return {
         "taplo",
         "markdown-oxide",
         "codelldb",
+        "jdtls",
   		},
   	},
   },
-
   {
   	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
+    opts = {
+      ensure_installed = {
         "asm",
         "bash",
         "c",
@@ -92,7 +92,6 @@ return {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    version = "3.5.4",
     main = "ibl",
     config = function ()
       require('configs.indent-blankline')
