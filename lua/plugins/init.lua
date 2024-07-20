@@ -60,6 +60,7 @@ return {
         "git_rebase",
         "gitattributes",
         "gitcommit",
+        "gitignore",
         "haskell",
         "haskell_persistent",
         "hjson",
