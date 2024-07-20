@@ -38,7 +38,6 @@ return {
         "markdown-oxide",
         "codelldb",
         "jdtls",
-        "csharp-language-server",
   		},
   	},
   },
@@ -123,5 +122,9 @@ return {
   {
     "cohama/lexima.vim",
     lazy = false,
+  },
+  {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    event = "User FilePost",
   },
 }
