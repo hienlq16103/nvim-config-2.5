@@ -28,8 +28,8 @@ return {
         "omnisharp",
         "omnisharp-mono",
         "markdown-oxide",
-      },
-    },
+  		},
+  	},
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -112,5 +112,9 @@ return {
   {
     "cohama/lexima.vim",
     lazy = false,
+  },
+  {
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    event = "User FilePost",
   },
 }
