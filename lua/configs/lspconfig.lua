@@ -4,12 +4,15 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
+local pid = vim.fn.pid
+
 local servers = {
   "lua_ls",
   "hls",
   "denols",
   "intelephense",
   "sqlls",
+  "omnisharp",
   "cssls",
   "texlab",
   "taplo",
@@ -43,15 +46,17 @@ lspconfig.clangd.setup{
 }
 
 -- C#
-lspconfig.csharp_ls.setup({
+lspconfig.omnisharp.setup({
   handlers = {
-    ["textDocument/definition"] = require('csharpls_extended').handler,
-    ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
+    ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+    ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+    ["textDocument/references"] = require('omnisharp_extended').references_handler,
+    ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
   },
-  cmd = {"csharp-ls"},
+  cmd = {"omnisharp-mono", "--languageserver", "--hostPID", tostring(pid)},
   on_init = on_init,
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 })
 
 -- python

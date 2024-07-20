@@ -36,7 +36,8 @@ return {
         "markdown-oxide",
         "codelldb",
         "jdtls",
-        "csharp-language-server",
+        "omnisharp",
+        "omnisharp-mono",
   		},
   	},
   },
@@ -123,7 +124,7 @@ return {
     lazy = false,
   },
   {
-    "Decodetalkers/csharpls-extended-lsp.nvim",
-    event = 'User FilePost',
+    "Hoffs/omnisharp-extended-lsp.nvim",
+    event = "User FilePost",
   },
 }
