@@ -38,6 +38,7 @@ return {
         "markdown-oxide",
         "codelldb",
         "jdtls",
+        "csharp-language-server",
   		},
   	},
   },

@@ -10,12 +10,13 @@ local servers = {
   "denols",
   "intelephense",
   "sqlls",
-  "omnisharp",
+  -- "omnisharp",
   "cssls",
   "texlab",
   "taplo",
   "markdown_oxide",
   "jdtls",
+  "csharp_ls",
 }
 
 -- lsps with default config
@@ -44,12 +45,12 @@ lspconfig.clangd.setup{
 }
 
 -- C#
-lspconfig.omnisharp.setup({
-  cmd = {"omnisharp-mono", "--languageserver", "--hostPID", tostring(pid)},
-  on_init = on_init,
-  on_attach = on_attach,
-  capabilities = capabilities
-})
+-- lspconfig.omnisharp.setup({
+--   cmd = {"omnisharp-mono", "--languageserver", "--hostPID", tostring(pid)},
+--   on_init = on_init,
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- })
 
 -- python
 lspconfig.pylsp.setup{
