@@ -30,8 +30,6 @@ return {
         "deno",
         "intelephense",
         "sqlls",
-        "omnisharp",
-        "omnisharp-mono",
         "css-lsp",
         "texlab",
         "taplo",
@@ -123,5 +121,9 @@ return {
   {
     "cohama/lexima.vim",
     lazy = false,
+  },
+  {
+    "Decodetalkers/csharpls-extended-lsp.nvim",
+    event = 'User FilePost',
   },
 }
