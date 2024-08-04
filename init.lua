@@ -51,6 +51,3 @@ vim.api.nvim_create_user_command("DT",function ()
 end, { desc = "toggle diagnostic"})
 
 vim.wo.relativenumber = true
-
-require("luasnip").filetype_extend("cs", {"unity"})
-

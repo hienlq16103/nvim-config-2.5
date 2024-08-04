@@ -18,6 +18,7 @@ local servers = {
   "taplo",
   "markdown_oxide",
   "jdtls",
+  "clangd",
 }
 
 -- lsps with default config
@@ -28,22 +29,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- typescript
--- lspconfig.tsserver.setup {
---   on_attach = on_attach,
---   on_init = on_init,
---   capabilities = capabilities,
--- }
-
--- C/C++
-lspconfig.clangd.setup{
-  on_attach = function (client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
 
 -- C#
 lspconfig.omnisharp.setup({
