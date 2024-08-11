@@ -127,4 +127,8 @@ return {
     "Hoffs/omnisharp-extended-lsp.nvim",
     event = "User FilePost",
   },
+  {
+    "kkoomen/vim-doge",
+    ft = {'cs'},
+  }
 }
