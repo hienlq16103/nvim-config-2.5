@@ -129,6 +129,6 @@ return {
   },
   {
     "kkoomen/vim-doge",
-    ft = {'cs'},
+    event = "User FilePost",
   }
 }
