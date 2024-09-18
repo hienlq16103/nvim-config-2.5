@@ -13,4 +13,27 @@ M.ui = {
 	-- },
 }
 
+M.mason = {
+  pkgs = {
+    "lua-language-server",
+    "clangd",
+    "clang-format",
+    "python-lsp-server",
+    "haskell-language-server",
+    "deno",
+    "intelephense",
+    "sqlls",
+    "css-lsp",
+    "texlab",
+    "taplo",
+    "markdown-oxide",
+    "codelldb",
+    "jdtls",
+    "omnisharp",
+    "omnisharp-mono",
+    "cmake-language-server",
+    "vim-language-server",
+  }
+}
+
 return M

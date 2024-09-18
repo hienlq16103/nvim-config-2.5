@@ -18,7 +18,8 @@ local servers = {
   "taplo",
   "markdown_oxide",
   "jdtls",
-  "clangd",
+  "cmake",
+  "vimls",
 }
 
 -- lsps with default config
@@ -29,6 +30,17 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- C++
+lspconfig.clangd.setup{
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  on_init = on_init,
+  on_attach = function (client, bufnr)
+    client.server_capabilities.signatureHelpProvider = false
+    on_attach(client, bufnr)
+  end,
+  capabilities = capabilities,
+}
 
 -- C#
 lspconfig.omnisharp.setup({
