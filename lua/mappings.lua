@@ -22,7 +22,12 @@ map("v", ">", ">gv", { desc = "Indent line" })
 
 -- Neogit
 local neogit = require("neogit")
-map({"n"}, "<leader>gs", neogit.open, { silent = true, noremap = true })
+map("n", "<leader>gs", neogit.open, { silent = true, noremap = true })
+
+-- nvim dap
+local dap = require("dap")
+map("n", "<leader>db", dap.toggle_breakpoint)
+map("n", "<leader>dc", dap.continue)
 
 local nomap = vim.keymap.del
 
