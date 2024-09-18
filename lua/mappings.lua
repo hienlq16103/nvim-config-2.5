@@ -19,6 +19,11 @@ map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
+
+-- Neogit
+local neogit = require("neogit")
+map({"n"}, "<leader>gs", neogit.open, { silent = true, noremap = true })
+
 local nomap = vim.keymap.del
 
 nomap("i", "<C-b>")

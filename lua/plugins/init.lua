@@ -110,5 +110,14 @@ return {
   {
     "kkoomen/vim-doge",
     event = "User FilePost",
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = true
   }
 }
