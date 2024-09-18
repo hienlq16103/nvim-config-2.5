@@ -119,5 +119,8 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     config = true
-  }
+  },
+  {
+    "mfussenegger/nvim-dap"
+  },
 }
