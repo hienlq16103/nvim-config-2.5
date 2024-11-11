@@ -12,6 +12,9 @@ M.ui = {
 	-- 	["@comment"] = { italic = true },
 	-- },
 }
+M.nvdash = {
+  load_on_startup = true,
+}
 
 M.mason = {
   pkgs = {

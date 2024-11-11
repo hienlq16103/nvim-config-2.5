@@ -123,4 +123,8 @@ return {
   {
     "mfussenegger/nvim-dap"
   },
+  {
+    'mbbill/undotree',
+    lazy = false,
+  },
 }
