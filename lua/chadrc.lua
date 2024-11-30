@@ -9,12 +9,16 @@ M.ui = {}
 M.base46 = {
   theme = "nightfox",
   transparency = true,
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
 }
+
+M.ui = {
+  cmp = {
+    lspkind_text = true,
+    style = "atom", -- default/flat_light/flat_dark/atom/atom_colored
+  },
+}
+
+M.telescope = { style = "bordered" } -- borderless / bordered
 
 M.nvdash = {
   load_on_startup = true,
