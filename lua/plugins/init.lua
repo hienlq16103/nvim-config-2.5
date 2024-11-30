@@ -13,16 +13,13 @@ return {
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
-      vim.keymap.set("n","<leader>lf", function ()
-        vim.diagnostic.open_float{ border = "rounded" }
+      vim.keymap.set("n", "<leader>lf", function()
+        vim.diagnostic.open_float { border = "rounded" }
       end)
     end,
   },
   {
-    "williamboman/mason.nvim",
-  },
-  {
-  	"nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
         "asm",
@@ -68,14 +65,14 @@ return {
         "vimdoc",
         "xml",
         "yaml",
-  		},
-  	},
+      },
+    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    config = function ()
-      require('configs.indent-blankline')
+    config = function()
+      require "configs.indent-blankline"
     end,
   },
   {
@@ -84,12 +81,12 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    config = function ()
-      require('nvim-ts-autotag').setup()
+    config = function()
+      require("nvim-ts-autotag").setup()
     end,
-    ft = function ()
-      return require('configs.nvim-ts-autotag-filetype')
-    end
+    ft = function()
+      return require "configs.nvim-ts-autotag-filetype"
+    end,
   },
   {
     "folke/which-key.nvim",
@@ -118,13 +115,13 @@ return {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = true
+    config = true,
   },
   {
-    "mfussenegger/nvim-dap"
+    "mfussenegger/nvim-dap",
   },
   {
-    'mbbill/undotree',
+    "mbbill/undotree",
     lazy = false,
   },
 }
