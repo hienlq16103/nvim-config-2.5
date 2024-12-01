@@ -17,7 +17,10 @@ map("v", ">", ">gv", { desc = "Indent line" })
 local neogit = require("neogit")
 map("n", "<leader>gs", neogit.open)
 
-map("n", "<leader>dm", "<cmd>NoiceDismiss<CR>")
+local noice = require("noice")
+map("n", "<leader>dm", function ()
+  noice.cmd("dismiss")
+end)
 
 -- Undo tree
 map('n', '<leader>ut', function ()
