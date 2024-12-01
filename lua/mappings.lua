@@ -14,8 +14,8 @@ map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
-map("n", "<leader>gs", ":Neogit<CR>")
-map("n", "<leader>gc", ":Neogit commit<CR>")
+local neogit = require("neogit")
+map("n", "<leader>gs", neogit.open)
 
 map("n", "<leader>dm", "<cmd>NoiceDismiss<CR>")
 
