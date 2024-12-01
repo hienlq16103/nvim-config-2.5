@@ -6,6 +6,16 @@ local lspconfig = require "lspconfig"
 
 local pid = vim.fn.pid
 
+local on_attach_extended = function(client, bufnr)
+  on_attach(client, bufnr)
+  vim.keymap.set("n", "<leader>lf", function()
+    vim.diagnostic.open_float { border = "rounded" }
+  end)
+
+  vim.keymap.set("n", "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
+  vim.keymap.set("v", "<leader>ca", "<esc><cmd>lua require('fastaction').range_code_action()<CR>", { buffer = bufnr })
+end
+
 local servers = {
   "lua_ls",
   "hls",
@@ -20,27 +30,26 @@ local servers = {
   "jdtls",
   "cmake",
   "vimls",
+  "clangd",
 }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_init = on_init,
-    on_attach = on_attach,
+    on_attach = on_attach_extended,
     capabilities = capabilities,
   }
 end
 
--- C++
-lspconfig.clangd.setup {
-  cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
-  on_init = on_init,
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
+-- C/C++
+-- lspconfig.clangd.setup {
+--   on_attach = function(client, bufnr)
+--     client.server_capabilities.signatureHelpProvider = false
+--     on_attach(client, bufnr)
+--   end,
+--   capabilities = capabilities,
+-- }
 
 -- C#
 lspconfig.omnisharp.setup {
@@ -91,7 +100,7 @@ lspconfig.omnisharp.setup {
     },
   },
   on_init = on_init,
-  on_attach = on_attach,
+  on_attach = on_attach_extended,
   capabilities = capabilities,
 }
 
@@ -107,6 +116,6 @@ lspconfig.pylsp.setup {
     },
   },
   on_init = on_init,
-  on_attach = on_attach,
+  on_attach = on_attach_extended,
   capabilities = capabilities,
 }
