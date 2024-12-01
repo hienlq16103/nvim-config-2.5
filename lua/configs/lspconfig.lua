@@ -4,8 +4,6 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
-local pid = vim.fn.pid
-
 local on_attach_extended = function(client, bufnr)
   on_attach(client, bufnr)
   vim.keymap.set("n", "<leader>lf", function()
