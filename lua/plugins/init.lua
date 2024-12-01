@@ -13,9 +13,6 @@ return {
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
-      vim.keymap.set("n", "<leader>lf", function()
-        vim.diagnostic.open_float { border = "rounded" }
-      end)
     end,
   },
   {
@@ -142,8 +139,8 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    opts = function ()
-      require("configs.noiceOptions")
+    opts = function()
+      require "configs.noiceOptions"
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
@@ -152,10 +149,16 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup {
-        background_colour = "#000000",
-      }
-    end,
+    opts = {
+      background_colour = "#000000",
+    },
+  },
+  {
+    "Chaitanyabsprip/fastaction.nvim",
+    ---@type FastActionConfig
+    opts = {
+      dismiss_keys = { "j", "k", "<c-c>", "q", "<Esc>" },
+    },
+    event = "LspAttach",
   },
 }
