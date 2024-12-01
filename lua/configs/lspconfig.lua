@@ -3,7 +3,6 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local pid = vim.fn.getpid()
 
 local on_attach_extended = function(client, bufnr)
   on_attach(client, bufnr)
@@ -44,7 +43,12 @@ end
 -- C#
 lspconfig.omnisharp.setup {
   cmd = { "dotnet", "C:\\Users\\hienl\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll" },
-
+  handlers = {
+    ["textDocument/definition"] = require("omnisharp_extended").definition_handler,
+    ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
+    ["textDocument/references"] = require("omnisharp_extended").references_handler,
+    ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
+  },
   settings = {
     FormattingOptions = {
       -- Enables support for reading code style, naming convention and analyzer
@@ -82,12 +86,6 @@ lspconfig.omnisharp.setup {
       -- determining which version to use for project loading.
       IncludePrereleases = true,
     },
-  },
-  handlers = {
-    ["textDocument/definition"] = require("omnisharp_extended").definition_handler,
-    ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
-    ["textDocument/references"] = require("omnisharp_extended").references_handler,
-    ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
   },
   on_init = on_init,
   on_attach = on_attach_extended,
