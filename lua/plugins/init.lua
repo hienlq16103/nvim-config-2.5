@@ -168,4 +168,8 @@ return {
       vim.keymap.set({ "v", "n" }, "cp", require("actions-preview").code_actions)
     end,
   },
+  {
+    "mbbill/undotree",
+    lazy = false,
+  }
 }

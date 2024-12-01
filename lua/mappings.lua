@@ -19,6 +19,9 @@ map("n", "<leader>gc", ":Neogit commit<CR>")
 
 map("n", "<leader>dm", "<cmd>NoiceDismiss<CR>")
 
+-- Undo tree
+map('n', '<leader>ut', vim.cmd.UndotreeToggle)
+
 local nomap = vim.keymap.del
 
 nomap("i", "<C-b>")
