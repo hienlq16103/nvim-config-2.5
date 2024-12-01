@@ -5,30 +5,41 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local pid = vim.fn.getpid()
 
+local on_attach_extended = function(client, bufnr)
+  on_attach(client, bufnr)
+  vim.keymap.set("n", "<leader>lf", function()
+    vim.diagnostic.open_float { border = "rounded" }
+  end)
+
+  vim.keymap.set("n", "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
+  vim.keymap.set("v", "<leader>ca", "<esc><cmd>lua require('fastaction').range_code_action()<CR>", { buffer = bufnr })
+end
+
 local servers = {
   "lua_ls",
   "sqlls",
   "omnisharp",
   "markdown_oxide",
+  "clangd",
 }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_init = on_init,
-    on_attach = on_attach,
+    on_attach = on_attach_extended,
     capabilities = capabilities,
   }
 end
 
 -- C/C++
-lspconfig.clangd.setup {
-  on_attach = function(client, bufnr)
-    client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
+-- lspconfig.clangd.setup {
+--   on_attach = function(client, bufnr)
+--     client.server_capabilities.signatureHelpProvider = false
+--     on_attach(client, bufnr)
+--   end,
+--   capabilities = capabilities,
+-- }
 
 -- C#
 lspconfig.omnisharp.setup {
@@ -79,7 +90,7 @@ lspconfig.omnisharp.setup {
     ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
   },
   on_init = on_init,
-  on_attach = on_attach,
+  on_attach = on_attach_extended,
   capabilities = capabilities,
 }
 
@@ -95,6 +106,6 @@ lspconfig.pylsp.setup {
     },
   },
   on_init = on_init,
-  on_attach = on_attach,
+  on_attach = on_attach_extended,
   capabilities = capabilities,
 }
