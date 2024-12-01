@@ -161,4 +161,11 @@ return {
     },
     event = "LspAttach",
   },
+  {
+    "aznhe21/actions-preview.nvim",
+    event = "LspAttach",
+    config = function()
+      vim.keymap.set({ "v", "n" }, "ap", require("actions-preview").code_actions)
+    end,
+  },
 }
