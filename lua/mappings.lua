@@ -29,7 +29,10 @@ map("n", "<leader>db", dap.toggle_breakpoint)
 map("n", "<leader>dc", dap.continue)
 
 -- Undo tree
-map('n', '<leader>ut', vim.cmd.UndotreeToggle)
+map('n', '<leader>ut', function ()
+  vim.cmd.UndotreeToggle()
+  vim.cmd.UndotreeFocus()
+end)
 
 local nomap = vim.keymap.del
 
