@@ -157,7 +157,7 @@ return {
     "aznhe21/actions-preview.nvim",
     event = "LspAttach",
     config = function()
-      vim.keymap.set({ "v", "n" }, "cp", require("actions-preview").code_actions)
+      vim.keymap.set({ "v", "n" }, "pa", require("actions-preview").code_actions)
     end,
   },
 }
