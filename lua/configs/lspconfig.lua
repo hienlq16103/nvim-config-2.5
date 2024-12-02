@@ -3,15 +3,20 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
+local builtin = require('telescope.builtin')
+
+local map = vim.keymap.set
 
 local on_attach_extended = function(client, bufnr)
   on_attach(client, bufnr)
-  vim.keymap.set("n", "<leader>lf", function()
+  map("n", "<leader>lf", function()
     vim.diagnostic.open_float { border = "rounded" }
   end)
-
-  vim.keymap.set("n", "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
-  vim.keymap.set("v", "<leader>ca", "<esc><cmd>lua require('fastaction').range_code_action()<CR>", { buffer = bufnr })
+  map("n", "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
+  map("v", "<leader>ca", "<esc><cmd>lua require('fastaction').range_code_action()<CR>", { buffer = bufnr })
+  map("n", "<leader>pr", builtin.lsp_references)
+  map("n", "<leader>pi", builtin.lsp_implementations)
+  map("n", "<leader>pd", builtin.diagnostics)
 end
 
 local servers = {
