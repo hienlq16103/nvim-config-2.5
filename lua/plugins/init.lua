@@ -129,23 +129,6 @@ return {
     },
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = function()
-      require "configs.noiceOptions"
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  },
-  {
-    "rcarriga/nvim-notify",
-    opts = {
-      background_colour = "#000000",
-    },
-  },
-  {
     "Chaitanyabsprip/fastaction.nvim",
     ---@type FastActionConfig
     opts = {

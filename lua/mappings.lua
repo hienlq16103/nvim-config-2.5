@@ -28,11 +28,6 @@ local dap = require("dap")
 map("n", "<leader>db", dap.toggle_breakpoint)
 map("n", "<leader>dc", dap.continue)
 
-local noice = require("noice")
-map("n", "<leader>dm", function ()
-  noice.cmd("dismiss")
-end)
-
 -- Undo tree
 map('n', '<leader>ut', function ()
   vim.cmd.UndotreeToggle()
