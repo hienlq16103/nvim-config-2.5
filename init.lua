@@ -40,17 +40,29 @@ end)
 
 -- Personal configs
 
-vim.api.nvim_create_user_command("DT",function ()
+vim.api.nvim_create_user_command("DT", function()
   local config = vim.diagnostic.config
   local vt = config().virtual_text
-  config{
+  config {
     virtual_text = not vt,
     -- underline = not vt,
     -- signs = not vt,
   }
-end, { desc = "toggle diagnostic"})
+end, { desc = "toggle diagnostic" })
 
 vim.wo.relativenumber = true
 vim.g.undotree_DiffCommand = "FC"
 
 require("luasnip").filetype_extend("cs", { "unity" })
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript",
+}
+
+local lspAutoCmd = vim.api.nvim_create_augroup("lspAutoCmd", { clear = true })
+vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+  callback = function()
+    vim.lsp.codelens.refresh { bufnr = 0 }
+  end,
+  group = lspAutoCmd,
+})

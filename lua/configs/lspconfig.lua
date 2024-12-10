@@ -22,7 +22,7 @@ end
 local servers = {
   "lua_ls",
   "hls",
-  "denols",
+  -- "denols",
   "intelephense",
   "sqlls",
   "omnisharp",
@@ -34,6 +34,8 @@ local servers = {
   "cmake",
   "vimls",
   "clangd",
+  "eslint",
+  "ts_ls",
 }
 
 -- lsps with default config
