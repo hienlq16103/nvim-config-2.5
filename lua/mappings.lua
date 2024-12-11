@@ -17,11 +17,6 @@ map("v", ">", ">gv", { desc = "Indent line" })
 local neogit = require("neogit")
 map("n", "<leader>gs", neogit.open)
 
-local noice = require("noice")
-map("n", "<leader>dm", function ()
-  noice.cmd("dismiss")
-end)
-
 -- Undo tree
 map('n', '<leader>ut', function ()
   vim.cmd.UndotreeToggle()
