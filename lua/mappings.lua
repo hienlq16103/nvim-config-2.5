@@ -25,8 +25,16 @@ map("n", "<leader>gs", neogit.open, { silent = true, noremap = true })
 
 -- nvim dap
 local dap = require("dap")
+local dapui = require("dapui")
+
+map('n', '<F5>', dap.continue)
+map('n', '<F10>', dap.step_over)
+map('n', '<F11>', dap.step_into)
+map('n', '<F12>', dap.step_out)
 map("n", "<leader>db", dap.toggle_breakpoint)
-map("n", "<leader>dc", dap.continue)
+map("n", "<leader>dt", function ()
+  dapui.open({reset = true})
+end)
 
 -- Undo tree
 map('n', '<leader>ut', function ()
