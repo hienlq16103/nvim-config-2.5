@@ -116,6 +116,12 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function ()
+      require("configs.dap-configs")
+    end
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -124,9 +130,6 @@ return {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
-    config = function ()
-      require("configs.dap-ui")
-    end
   },
   {
     "mbbill/undotree",
