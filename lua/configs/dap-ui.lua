@@ -1,5 +1,4 @@
-local dap = require("dap")
-local dapui = require("dapui")
+local dap, dapui = require("dap"), require("dapui")
 
 dap.listeners.before.attach.dapui_config = function()
   dapui.open()
