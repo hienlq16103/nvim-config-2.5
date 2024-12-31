@@ -4,8 +4,6 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {}
-
 M.base46 = {
   theme = "nightfox",
   transparency = true,
@@ -16,9 +14,13 @@ M.ui = {
     lspkind_text = true,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
+  statusline = {
+    theme = "minimal",
+  },
+  -- borderless / bordered
+  telescope = { style = "borderless" },
 }
 
-M.telescope = { style = "bordered" } -- borderless / bordered
 
 M.nvdash = {
   load_on_startup = true,
