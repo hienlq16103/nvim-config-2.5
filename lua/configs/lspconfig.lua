@@ -85,6 +85,7 @@ lspconfig.omnisharp.setup {
       -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
       -- true
       AnalyzeOpenDocumentsOnly = nil,
+      EnableDecompilationSupport = true,
     },
     Sdk = {
       -- Specifies whether to include preview versions of the .NET SDK when
