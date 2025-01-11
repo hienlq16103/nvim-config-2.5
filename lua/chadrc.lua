@@ -18,10 +18,6 @@ M.ui = {
 
 M.telescope = { style = "bordered" } -- borderless / bordered
 
-M.nvdash = {
-  load_on_startup = true,
-}
-
 M.colorify = {
   enabled = true,
   mode = "virtual", -- fg, bg, virtual

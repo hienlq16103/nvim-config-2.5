@@ -115,21 +115,18 @@ return {
     config = true,
   },
   {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-    },
-    config = function ()
-      require("configs.dap-configs")
-    end
-  },
-  {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
+    lazy = false,
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function ()
+      require("configs.dap-configs")
+    end
   },
   {
     "mbbill/undotree",
