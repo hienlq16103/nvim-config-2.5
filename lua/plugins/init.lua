@@ -99,7 +99,7 @@ return {
   },
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
-    event = "User FilePost",
+    ft = { 'cs' },
   },
   {
     "kkoomen/vim-doge",
@@ -124,9 +124,9 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    config = function ()
-      require("configs.dap-configs")
-    end
+    config = function()
+      require "configs.dap-configs"
+    end,
   },
   {
     "mbbill/undotree",
