@@ -99,7 +99,7 @@ return {
   },
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
-    ft = { 'cs' },
+    ft = { "cs" },
   },
   {
     "kkoomen/vim-doge",
@@ -146,5 +146,9 @@ return {
     config = function()
       vim.keymap.set({ "v", "n" }, "pa", require("actions-preview").code_actions)
     end,
+  },
+  {
+    "pteroctopus/faster.nvim",
+    event = "BufReadPre",
   },
 }
