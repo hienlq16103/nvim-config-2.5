@@ -12,8 +12,6 @@ local on_attach_extended = function(client, bufnr)
   map("n", "<leader>lf", function()
     vim.diagnostic.open_float { border = "rounded" }
   end)
-  map("n", "<leader>ca", '<cmd>lua require("fastaction").code_action()<CR>', { buffer = bufnr })
-  map("v", "<leader>ca", "<esc><cmd>lua require('fastaction').range_code_action()<CR>", { buffer = bufnr })
   map("n", "<leader>pr", builtin.lsp_references)
   map("n", "<leader>pi", builtin.lsp_implementations)
   map("n", "<leader>pd", builtin.diagnostics)
@@ -25,7 +23,6 @@ local servers = {
   -- "denols",
   "intelephense",
   "sqlls",
-  "omnisharp",
   "cssls",
   "texlab",
   "taplo",
@@ -93,7 +90,7 @@ lspconfig.omnisharp.setup {
       -- have a negative impact on initial completion responsiveness,
       -- particularly for the first few completion sessions after opening a
       -- solution.
-      EnableImportCompletion = nil,
+      EnableImportCompletion = true,
       -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
       -- true
       AnalyzeOpenDocumentsOnly = nil,

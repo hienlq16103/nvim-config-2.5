@@ -133,14 +133,6 @@ return {
     lazy = false,
   },
   {
-    "Chaitanyabsprip/fastaction.nvim",
-    ---@type FastActionConfig
-    opts = {
-      dismiss_keys = { "j", "k", "<c-c>", "q", "<Esc>" },
-    },
-    event = "LspAttach",
-  },
-  {
     "aznhe21/actions-preview.nvim",
     event = "LspAttach",
     config = function()
