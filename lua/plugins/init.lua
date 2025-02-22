@@ -116,10 +116,17 @@ return {
   },
   {
     "rcarriga/nvim-dap-ui",
-    lazy = false,
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
+    },
+    keys = {
+      "<F5>",
+      "<F10>",
+      "<F11>",
+      "<F12>",
+      "<leader>db",
+      "<leader>dt",
     },
   },
   {
