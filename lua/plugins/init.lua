@@ -99,7 +99,7 @@ return {
   },
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
-    event = "User FilePost",
+    ft = "cs",
   },
   {
     "kkoomen/vim-doge",
@@ -120,20 +120,22 @@ return {
     config = true,
   },
   {
-    "mfussenegger/nvim-dap",
-    config = function()
-      local dap = require "dap"
-      local map = vim.keymap.set
-      map("n", "<leader>db", dap.toggle_breakpoint)
-      map("n", "<leader>dc", dap.continuek)
-    end,
-  },
-  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
+    keys = {
+      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
+      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
+      { "<leader>dt", "<cmd>lua require('dapui').toggle({ reset = true })<CR>" },
+    },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require "configs.dap-configs"
+    end,
   },
   {
     "aznhe21/actions-preview.nvim",
@@ -147,15 +149,7 @@ return {
     lazy = false,
   },
   {
-    "EL-MASTOR/bufferlist.nvim",
-    lazy = true,
-    keys = { { "<Leader>bm", ":BufferList<CR>", desc = "Open bufferlist" } },
-    dependencies = "nvim-tree/nvim-web-devicons",
-    cmd = "BufferList",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    },
+    "pteroctopus/faster.nvim",
+    event = "BufReadPre",
   },
 }
