@@ -20,7 +20,6 @@ end
 local servers = {
   "lua_ls",
   "sqlls",
-  "omnisharp",
   "markdown_oxide",
   "clangd",
 }

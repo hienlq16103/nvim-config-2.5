@@ -16,6 +16,5 @@ local fileType = {
   "glimmer",
   "handlebars",
   "hbs",
-  "cs",
 }
 return fileType
