@@ -9,8 +9,8 @@ map({ "n", "v" }, "N", "Nzzzv")
 map({ "n", "v" }, "G", "Gzz")
 map("n", "<leader>", "")
 
-map("v", "J", "<cmd>m '>+1<cr>gv=gv")
-map("v", "K", "<cmd>m '<-2<cr>gv=gv")
+map("v", "J", ":m '>+1<cr>gv=gv")
+map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
