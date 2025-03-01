@@ -23,12 +23,6 @@ map("v", ">", ">gv", { desc = "Indent line" })
 local neogit = require "neogit"
 map("n", "<leader>gs", neogit.open, { silent = true, noremap = true })
 
--- Undo tree
-map("n", "<leader>ut", function()
-  vim.cmd.UndotreeToggle()
-  vim.cmd.UndotreeFocus()
-end)
-
 local nomap = vim.keymap.del
 
 nomap("i", "<C-b>")
