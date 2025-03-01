@@ -145,11 +145,15 @@ return {
     end,
   },
   {
-    "mbbill/undotree",
-    lazy = false,
-  },
-  {
     "pteroctopus/faster.nvim",
     event = "BufReadPre",
+  },
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = {
+      { "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>" },
+    },
   },
 }
