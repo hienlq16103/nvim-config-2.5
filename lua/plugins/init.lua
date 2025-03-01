@@ -115,18 +115,20 @@ return {
     config = true,
   },
   {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+  },
+  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
       "nvim-neotest/nvim-nio",
     },
     keys = {
-      "<F5>",
-      "<F10>",
-      "<F11>",
-      "<F12>",
-      "<leader>db",
-      "<leader>dt",
+      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
+      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
+      { "<leader>dt", "<cmd>lua require('dapui').toggle({ reset = true })<CR>" },
     },
   },
   {
@@ -136,15 +138,15 @@ return {
     end,
   },
   {
-    "mbbill/undotree",
-    lazy = false,
-  },
-  {
     "aznhe21/actions-preview.nvim",
     event = "LspAttach",
     config = function()
       vim.keymap.set({ "v", "n" }, "pa", require("actions-preview").code_actions)
     end,
+  },
+  {
+    "mbbill/undotree",
+    lazy = false,
   },
   {
     "pteroctopus/faster.nvim",

@@ -18,15 +18,25 @@ dap.listeners.before.event_exited.dapui_config = function()
   dapui.close()
 end
 
-map("n", "<F5>", dap.continue)
+-- Mapping
 map("n", "<F10>", dap.step_over)
 map("n", "<F11>", dap.step_into)
 map("n", "<F12>", dap.step_out)
-map("n", "<leader>db", dap.toggle_breakpoint)
-map("n", "<leader>dt", function()
-  dapui.toggle { reset = true }
-end)
+map("n", "<leader>k", dapui.eval)
+map("v", "<leader>k", "<cmd>lua require('dapui').eval()<CR>")
 
+-- Icon and highlight
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939', bg = '' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef', bg = '' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379', bg = '' })
+
+vim.fn.sign_define('DapBreakpoint', { text='', texthl='DapBreakpoint', linehl='', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointCondition', { text='', texthl='DapBreakpoint', linehl='', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='', numhl= 'DapStopped' })
+
+-- Unity
 local home_directory = vim.env.HOME
 local vstuc_path = home_directory .. "/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.0/bin/"
 
