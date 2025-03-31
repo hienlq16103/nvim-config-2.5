@@ -54,10 +54,6 @@ vim.wo.relativenumber = true
 
 require("luasnip").filetype_extend("cs", { "unity" })
 
-vim.g.markdown_fenced_languages = {
-  "ts=typescript",
-}
-
 local lspAutoCmd = vim.api.nvim_create_augroup("lspAutoCmd", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
   callback = function()

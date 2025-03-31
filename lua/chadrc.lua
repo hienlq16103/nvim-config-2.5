@@ -24,7 +24,6 @@ M.ui = {
   }
 }
 
-
 M.colorify = {
   enabled = true,
   mode = "virtual", -- fg, bg, virtual

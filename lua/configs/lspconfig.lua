@@ -9,12 +9,32 @@ local map = vim.keymap.set
 
 local on_attach_extended = function(client, bufnr)
   on_attach(client, bufnr)
+
   map("n", "<leader>lf", function()
     vim.diagnostic.open_float { border = "rounded" }
   end)
+
   map("n", "<leader>pr", builtin.lsp_references)
   map("n", "<leader>pi", builtin.lsp_implementations)
   map("n", "<leader>pd", builtin.diagnostics)
+end
+
+local on_attach_omnisharp = function (client, bufnr)
+  on_attach_extended(client, bufnr)
+
+  local function opts(desc)
+    return { buffer = bufnr, desc = "LSP " .. desc }
+  end
+
+  vim.keymap.del("n", "gd", opts("Go to definition"))
+  vim.keymap.del("n", "gD", opts("Go to declaration"))
+  vim.keymap.del("n", "gr", opts("Show references"))
+  vim.keymap.del("n", "gi", opts("Go to implementation"))
+
+  map("n", "gd", function() require("omnisharp_extended").lsp_definition() end, { noremap = true })
+  map("n", "gD", function() require("omnisharp_extended").lsp_type_definition() end, { noremap = true} )
+  map("n", "gr", function() require("omnisharp_extended").lsp_references() end, { noremap = true })
+  map("n", "gi", function() require("omnisharp_extended").lsp_implementation() end, { noremap = true })
 end
 
 local servers = {
@@ -55,14 +75,7 @@ end
 
 -- C#
 lspconfig.omnisharp.setup {
-  handlers = {
-    ["textDocument/definition"] = require("omnisharp_extended").definition_handler,
-    ["textDocument/typeDefinition"] = require("omnisharp_extended").type_definition_handler,
-    ["textDocument/references"] = require("omnisharp_extended").references_handler,
-    ["textDocument/implementation"] = require("omnisharp_extended").implementation_handler,
-  },
   cmd = { "dotnet", "C:\\Users\\hienl\\AppData\\Local\\nvim-data\\mason\\packages\\omnisharp\\libexec\\OmniSharp.dll" },
-
   settings = {
     FormattingOptions = {
       -- Enables support for reading code style, naming convention and analyzer
@@ -103,7 +116,7 @@ lspconfig.omnisharp.setup {
     },
   },
   on_init = on_init,
-  on_attach = on_attach_extended,
+  on_attach = on_attach_omnisharp,
   capabilities = capabilities,
 }
 
