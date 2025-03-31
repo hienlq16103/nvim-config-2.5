@@ -53,7 +53,6 @@ end, { desc = "toggle diagnostic" })
 vim.wo.relativenumber = true
 
 require("luasnip").filetype_extend("cs", { "unity" })
-vim.g.undotree_DiffCommand = "FC"
 
 local lspAutoCmd = vim.api.nvim_create_augroup("lspAutoCmd", { clear = true })
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
