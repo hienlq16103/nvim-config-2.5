@@ -61,3 +61,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
   end,
   group = lspAutoCmd,
 })
+
+vim.api.nvim_create_autocmd("FileType", { pattern = "qf", command = "wincmd J", group = lspAutoCmd })
