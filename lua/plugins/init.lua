@@ -112,7 +112,12 @@ return {
       "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = true,
+    opts = {
+      integrations = {
+        telescope = true,
+        diffview = true,
+      },
+    }
   },
   {
     "akinsho/git-conflict.nvim",
