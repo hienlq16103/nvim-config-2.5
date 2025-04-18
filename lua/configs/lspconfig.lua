@@ -3,7 +3,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local builtin = require('telescope.builtin')
+local builtin = require "telescope.builtin"
 
 local map = vim.keymap.set
 
@@ -17,24 +17,37 @@ local on_attach_extended = function(client, bufnr)
   map("n", "<leader>pr", builtin.lsp_references)
   map("n", "<leader>pi", builtin.lsp_implementations)
   map("n", "<leader>pd", builtin.diagnostics)
+
+  map("n", "gi", vim.lsp.buf.implementation)
+  map("n", "<leader>sh", vim.lsp.buf.signature_help)
+  map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+  map("n", "gr", vim.lsp.buf.references)
 end
 
-local on_attach_omnisharp = function (client, bufnr)
+local on_attach_omnisharp = function(client, bufnr)
   on_attach_extended(client, bufnr)
 
   local function opts(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
 
-  vim.keymap.del("n", "gd", opts("Go to definition"))
-  vim.keymap.del("n", "gD", opts("Go to declaration"))
-  vim.keymap.del("n", "gr", opts("Show references"))
-  vim.keymap.del("n", "gi", opts("Go to implementation"))
+  vim.keymap.del("n", "gd", opts "Go to definition")
+  vim.keymap.del("n", "gD", opts "Go to declaration")
+  vim.keymap.del("n", "gr")
+  vim.keymap.del("n", "gi")
 
-  map("n", "gd", function() require("omnisharp_extended").lsp_definition() end, { noremap = true })
-  map("n", "gD", function() require("omnisharp_extended").lsp_type_definition() end, { noremap = true} )
-  map("n", "gr", function() require("omnisharp_extended").lsp_references() end, { noremap = true })
-  map("n", "gi", function() require("omnisharp_extended").lsp_implementation() end, { noremap = true })
+  map("n", "gd", function()
+    require("omnisharp_extended").lsp_definition()
+  end, { noremap = true })
+  map("n", "gD", function()
+    require("omnisharp_extended").lsp_type_definition()
+  end, { noremap = true })
+  map("n", "gr", function()
+    require("omnisharp_extended").lsp_references()
+  end, { noremap = true })
+  map("n", "gi", function()
+    require("omnisharp_extended").lsp_implementation()
+  end, { noremap = true })
 end
 
 local servers = {
@@ -46,11 +59,12 @@ local servers = {
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  vim.lsp.config(lsp, {
     on_init = on_init,
     on_attach = on_attach_extended,
     capabilities = capabilities,
-  }
+  })
+  vim.lsp.enable(lsp)
 end
 
 -- C/C++
@@ -110,7 +124,7 @@ lspconfig.omnisharp.setup {
 }
 
 -- python
-lspconfig.pylsp.setup {
+vim.lsp.config("pylsp", {
   settings = {
     pylsp = {
       plugins = {
@@ -123,4 +137,5 @@ lspconfig.pylsp.setup {
   on_init = on_init,
   on_attach = on_attach_extended,
   capabilities = capabilities,
-}
+})
+vim.lsp.enable("pylsp")
