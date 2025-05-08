@@ -38,7 +38,7 @@ vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='', n
 
 -- Unity
 local home_directory = vim.env.HOME
-local vstuc_path = home_directory .. "/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.0/bin/"
+local vstuc_path = home_directory .. "/.vscode/extensions/visualstudiotoolsforunity.vstuc-1.1.1/bin/"
 
 dap.adapters.vstuc = {
   type = "executable",
