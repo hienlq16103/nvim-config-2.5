@@ -24,10 +24,20 @@ M.ui = {
   },
   statusline = {
     theme = "minimal",
-    separator_style = "round",
+    separator_style = "block",
   },
   -- borderless / bordered
   telescope = { style = "borderless" },
+}
+
+M.term = {
+  winopts = { number = false },
+  sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
+  float = {
+    row = 0.08, col = 0.04,
+    width = 0.9, height = 0.8,
+    border = "rounded",
+  },
 }
 
 return M
