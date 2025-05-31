@@ -75,6 +75,7 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     lazy = false,
+    submodules = false,
   },
   {
     "windwp/nvim-ts-autotag",
@@ -120,11 +121,6 @@ return {
     }
   },
   {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
-  },
-  {
     "rcarriga/nvim-dap-ui",
     dependencies = {
       "mfussenegger/nvim-dap",
@@ -160,5 +156,9 @@ return {
     keys = {
       { "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>" },
     },
+  },
+  {
+    "NvChad/base46",
+    branch = "v3.0",
   },
 }
