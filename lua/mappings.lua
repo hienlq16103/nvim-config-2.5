@@ -31,3 +31,6 @@ nomap("i", "<C-h>")
 nomap("i", "<C-l>")
 nomap("i", "<C-j>")
 nomap("i", "<C-k>")
+
+nomap("n", "<tab>")
+nomap("n", "<S-tab>")

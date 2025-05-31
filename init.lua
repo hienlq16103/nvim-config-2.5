@@ -32,39 +32,13 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
-require "nvchad.autocmds"
+require "options"
+require "autocmds"
 
 vim.schedule(function()
   require "mappings"
 end)
 
--- Personal configs
-
-vim.api.nvim_create_user_command("DT", function()
-  local config = vim.diagnostic.config
-  local vt = config().virtual_text
-  config {
-    virtual_text = not vt,
-    -- underline = not vt,
-    -- signs = not vt,
-  }
-end, { desc = "toggle diagnostic" })
-
 vim.wo.relativenumber = true
 
 require("luasnip").filetype_extend("cs", { "unity" })
-
-local lspAutoCmd = vim.api.nvim_create_augroup("lspAutoCmd", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-  callback = function()
-    vim.lsp.codelens.refresh { bufnr = 0 }
-  end,
-  group = lspAutoCmd,
-})
-
-vim.api.nvim_create_autocmd("FileType", { pattern = "qf", command = "wincmd J", group = lspAutoCmd })
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*",
-  command = "hi TabLine guibg=none",
-})

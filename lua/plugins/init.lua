@@ -6,8 +6,6 @@ return {
       require "configs.conform"
     end,
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -160,5 +158,24 @@ return {
   {
     "NvChad/base46",
     branch = "v3.0",
+  },
+  {
+    "seblyng/roslyn.nvim",
+    ft = "cs",
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
+    opts = { },
+    dependencies = {
+      "neovim/nvim-lspconfig"
+    },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+    }
   },
 }
