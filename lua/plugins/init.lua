@@ -97,10 +97,6 @@ return {
     lazy = false,
   },
   {
-    "Hoffs/omnisharp-extended-lsp.nvim",
-    ft = { "cs" },
-  },
-  {
     "kkoomen/vim-doge",
     event = "User FilePost",
   },
@@ -164,7 +160,9 @@ return {
     ft = "cs",
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig
-    opts = { },
+    opts = {
+      filewatching = "roslyn",
+    },
     dependencies = {
       "neovim/nvim-lspconfig"
     },
