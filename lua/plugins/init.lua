@@ -99,6 +99,7 @@ return {
   {
     "Hoffs/omnisharp-extended-lsp.nvim",
     ft = "cs",
+    enabled = false,
   },
   {
     "kkoomen/vim-doge",
@@ -117,12 +118,6 @@ return {
         diffview = true,
       },
     }
-  },
-  {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
-    enabled = false,
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -170,7 +165,9 @@ return {
     ft = "cs",
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig
-    opts = { },
+    opts = {
+      filewatching = "roslyn",
+    },
     dependencies = {
       "neovim/nvim-lspconfig"
     },
