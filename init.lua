@@ -20,13 +20,8 @@ require("lazy").setup({
     lazy = false,
     branch = "v2.5",
     import = "nvchad.plugins",
-    config = function()
-      require "options"
-    end,
   },
-
   { import = "plugins" },
-  { import = "nvchad.blink.lazyspec" },
 }, lazy_config)
 
 -- load theme
@@ -39,7 +34,3 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
-vim.wo.relativenumber = true
-
-require("luasnip").filetype_extend("cs", { "unity" })

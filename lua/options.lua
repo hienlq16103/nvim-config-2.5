@@ -11,3 +11,5 @@ o.shellquote = ''
 o.shellpipe = '| Out-File -Encoding UTF8 %s'
 o.shellredir = '| Out-File -Encoding UTF8 %s'
 -- o.cursorlineopt ='both' -- to enable cursorline!
+
+vim.wo.relativenumber = true
