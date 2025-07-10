@@ -9,7 +9,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
@@ -77,9 +76,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-ts-autotag").setup()
-    end,
+    opts = {},
     ft = function()
       return require "configs.nvim-ts-autotag-filetype"
     end,
@@ -104,15 +101,13 @@ return {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "sindrets/diffview.nvim",
       "nvim-telescope/telescope.nvim",
     },
     opts = {
       integrations = {
         telescope = true,
-        diffview = true,
       },
-    }
+    },
   },
   {
     "rcarriga/nvim-dap-ui",
@@ -164,7 +159,7 @@ return {
       filewatching = "roslyn",
     },
     dependencies = {
-      "neovim/nvim-lspconfig"
+      "neovim/nvim-lspconfig",
     },
   },
   {
@@ -174,6 +169,33 @@ return {
         "github:mason-org/mason-registry",
         "github:Crashdummyy/mason-registry",
       },
-    }
+    },
+  },
+  { import = "nvchad.blink.lazyspec" },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      cmdline = { enabled = false },
+    },
+  },
+  {
+    "stevearc/quicker.nvim",
+    event = "FileType qf",
+    ---@module "quicker"
+    ---@type quicker.SetupOptions
+    opts = {},
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(_, opts)
+      require("luasnip").config.set_config(opts)
+      require "nvchad.configs.luasnip"
+      require("luasnip").filetype_extend("cs", { "unity" })
+    end,
   },
 }
