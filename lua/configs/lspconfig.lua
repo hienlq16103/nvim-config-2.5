@@ -3,7 +3,7 @@ local map = vim.keymap.set
 
 require("nvchad.configs.lspconfig").defaults()
 
-local on_attach_extended = function(client, bufnr)
+local on_attach_extended = function(_, bufnr)
   map("n", "<leader>lf", function()
     vim.diagnostic.open_float { border = "rounded" }
   end)
@@ -17,6 +17,12 @@ local on_attach_extended = function(client, bufnr)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("n", "gr", vim.lsp.buf.references)
 end
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    on_attach_extended(_, args.buf)
+  end,
+})
 
 local servers = {
   lua_ls = {},
@@ -38,7 +44,7 @@ local servers = {
 }
 
 for name, opts in pairs(servers) do
-  vim.lsp.config(name, vim.tbl_deep_extend("keep", opts, { on_attach = on_attach_extended }))
+  vim.lsp.config(name, opts)
   vim.lsp.enable(name)
 end
 
@@ -51,10 +57,7 @@ vim.lsp.config("roslyn", {
       dotnet_search_reference_assemblies = true,
     },
   },
-  on_attach = function (client, bufnr)
-    if client.supports_method "textDocument/semanticTokens" then
-      client.server_capabilities.semanticTokensProvider = nil
-    end
-    on_attach_extended(client, bufnr)
+  on_attach = function(client, bufnr)
+    require("nvchad.configs.lspconfig").on_init(client, bufnr)
   end,
 })
