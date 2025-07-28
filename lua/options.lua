@@ -12,3 +12,6 @@ o.shellredir = '| Out-File -Encoding UTF8 %s'
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
 vim.wo.relativenumber = true
+
+o.listchars = "tab:⇤–⇥,trail:·,precedes:⇠,extends:⇢"
+o.list = true
