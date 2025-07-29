@@ -10,9 +10,7 @@ o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
 o.shellquote = ''
 o.shellpipe = '| Out-File -Encoding UTF8 %s'
 o.shellredir = '| Out-File -Encoding UTF8 %s'
+o.winborder = 'rounded'
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
 vim.wo.relativenumber = true
-
-o.listchars = "tab:⇤–⇥,trail:·,precedes:⇠,extends:⇢"
-o.list = true
