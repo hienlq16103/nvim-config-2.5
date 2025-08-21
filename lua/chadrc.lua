@@ -15,6 +15,9 @@ M.base46 = {
     NeogitDiffAddCursor = { bg = "#445b51", fg = "#97b084" },
     NeogitDiffDeleteCursor = { bg = "#673d3d", fg = "#9e5962" }
   },
+  hl_override = {
+    LspSignatureActiveParameter = { fg = "#39ff14" },
+  }
 }
 
 M.ui = {
