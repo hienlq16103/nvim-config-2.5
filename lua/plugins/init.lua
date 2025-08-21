@@ -186,9 +186,21 @@ return {
     opts = {},
   },
   {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
+    "tronikelis/conflict-marker.nvim",
+    opts = {
+      highlights = true,
+      on_attach = function(conflict)
+        local MID = "^=======$"
+
+        vim.keymap.set("n", "[x", function()
+          vim.cmd("?" .. MID)
+        end, { buffer = conflict.bufnr })
+
+        vim.keymap.set("n", "]x", function()
+          vim.cmd("/" .. MID)
+        end, { buffer = conflict.bufnr })
+      end,
+    }
   },
   {
     "L3MON4D3/LuaSnip",
