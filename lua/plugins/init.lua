@@ -194,6 +194,7 @@ return {
   },
   {
     "tronikelis/conflict-marker.nvim",
+    lazy = false,
     opts = {
       highlights = true,
       on_attach = function(conflict)
@@ -207,6 +208,12 @@ return {
           vim.cmd("/" .. MID)
         end, { buffer = conflict.bufnr })
       end,
+      markers = {
+        start = "^<<<<<<<",
+        ending = "^>>>>>>>",
+        mid = "^=======$",
+        base = "^|||||||",
+      },
     }
   },
   {
