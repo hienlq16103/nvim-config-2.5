@@ -160,6 +160,7 @@ return {
     },
     dependencies = {
       "neovim/nvim-lspconfig",
+      "khoido2003/roslyn-filewatch.nvim",
     },
   },
   {
@@ -220,4 +221,10 @@ return {
     },
     ft = {"markdown"}
   }
+  {
+    "khoido2003/roslyn-filewatch.nvim",
+    config = function()
+      require("roslyn_filewatch").setup({})
+    end,
+  },
 }
