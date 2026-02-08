@@ -233,7 +233,13 @@ return {
       completions = { blink = { enabled = true } },
     },
     ft = {"markdown"}
-  }
+  },
+  {
+    'barrett-ruth/live-server.nvim',
+    build = 'npm add -g live-server',
+    cmd = { 'LiveServerStart', 'LiveServerStop' },
+    config = true
+  },
   {
     "khoido2003/roslyn-filewatch.nvim",
     config = function()
