@@ -26,7 +26,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 local servers = {
   lua_ls = {},
-  intelephense = {},
   sqlls = {},
   cssls = {},
   texlab = {},
@@ -58,6 +57,10 @@ end
 
 vim.lsp.config("roslyn", {
   settings = {
+    ["csharp|background_analysis"] = {
+      dotnet_analyzer_diagnostics_scope = "defaults",
+      dotnet_compiler_diagnostics_scope = "openFiles",
+    },
     ["csharp|code_lens"] = {
       dotnet_enable_references_code_lens = true,
     },

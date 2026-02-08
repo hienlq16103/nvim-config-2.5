@@ -160,6 +160,7 @@ return {
     },
     dependencies = {
       "neovim/nvim-lspconfig",
+      "khoido2003/roslyn-filewatch.nvim",
     },
   },
   {
@@ -175,6 +176,12 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      completion = {
+        accept = {
+          auto_brackets = { enabled = false },
+        },
+        ghost_text = { enabled = true },
+      },
       cmdline = { enabled = false },
     },
   },
@@ -207,5 +214,17 @@ return {
       completions = { blink = { enabled = true } },
     },
     ft = {"markdown"}
+  },
+  {
+    "khoido2003/roslyn-filewatch.nvim",
+    config = function()
+      require("roslyn_filewatch").setup({})
+    end,
+  },
+  {
+    'barrett-ruth/live-server.nvim',
+    build = 'pnpm add -g live-server',
+    cmd = { 'LiveServerStart', 'LiveServerStop' },
+    config = true
   }
 }

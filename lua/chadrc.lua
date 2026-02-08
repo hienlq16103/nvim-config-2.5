@@ -25,7 +25,7 @@ M.ui = {
   telescope = { style = "borderless" }, -- borderless / bordered
   statusline = {
     theme = "minimal",
-    separator_style = "block",
+    separator_style = "round",
   },
 }
 
