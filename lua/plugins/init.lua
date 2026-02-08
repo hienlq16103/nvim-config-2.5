@@ -221,5 +221,20 @@ return {
     build = 'pnpm add -g live-server',
     cmd = { 'LiveServerStart', 'LiveServerStop' },
     config = true
+  },
+  {
+    "andrewferrier/debugprint.nvim",
+    opts = {
+      filetypes = {
+        ["cs"] = {
+          left = 'Debug.Log($"',
+          right = '");',
+          mid_var = '{',
+          right_var = '}");',
+        }
+      },
+    },
+    event = "User FilePost",
+    version = "*", -- Remove if you DON'T want to use the stable version
   }
 }
