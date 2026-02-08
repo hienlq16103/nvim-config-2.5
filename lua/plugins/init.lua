@@ -193,11 +193,6 @@ return {
     opts = {},
   },
   {
-    "akinsho/git-conflict.nvim",
-    version = "*",
-    config = true,
-  },
-  {
     "L3MON4D3/LuaSnip",
     config = function(_, opts)
       require("luasnip").config.set_config(opts)
