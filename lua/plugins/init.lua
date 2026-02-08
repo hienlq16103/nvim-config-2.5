@@ -246,4 +246,19 @@ return {
       require("roslyn_filewatch").setup({})
     end,
   },
+  {
+    "andrewferrier/debugprint.nvim",
+    opts = {
+      filetypes = {
+        ["cs"] = {
+          left = 'Debug.Log($"',
+          right = '");',
+          mid_var = '{',
+          right_var = '}");',
+        }
+      },
+    },
+    event = "User FilePost",
+    version = "*", -- Remove if you DON'T want to use the stable version
+  },
 }
