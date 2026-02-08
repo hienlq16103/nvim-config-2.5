@@ -177,6 +177,12 @@ return {
     "saghen/blink.cmp",
     opts = {
       cmdline = { enabled = false },
+      completion = {
+        accept = {
+          auto_brackets = { enabled = false }
+        },
+        ghost_text = { enabled = true },
+      },
     },
   },
   {
