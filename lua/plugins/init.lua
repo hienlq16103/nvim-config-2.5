@@ -128,13 +128,6 @@ return {
     end,
   },
   {
-    "aznhe21/actions-preview.nvim",
-    event = "LspAttach",
-    config = function()
-      vim.keymap.set({ "v", "n" }, "pa", require("actions-preview").code_actions)
-    end,
-  },
-  {
     "pteroctopus/faster.nvim",
     event = "BufReadPre",
   },
