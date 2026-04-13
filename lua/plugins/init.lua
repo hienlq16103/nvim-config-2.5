@@ -110,22 +110,38 @@ return {
     },
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-    },
-    keys = {
-      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
-      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
-      { "<leader>dt", "<cmd>lua require('dapui').toggle({ reset = true })<CR>" },
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "igorlfs/nvim-dap-view",
+      "theHamsta/nvim-dap-virtual-text",
+    },
     config = function()
       require "configs.dap-configs"
     end,
+    keys = {
+      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
+      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
+      { "<leader>dt", "<cmd>lua require('dap-view').toggle()<CR>" },
+    },
+  },
+  {
+    "igorlfs/nvim-dap-view",
+    lazy = true,
+    version = "1.*",
+    ---@module 'dap-view'
+    ---@type dapview.Config
+    opts = {
+      winbar = {
+        sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "console" },
+        controls = {
+          enabled = true,
+        }
+      }
+    },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    opts = {},
   },
   {
     "pteroctopus/faster.nvim",
