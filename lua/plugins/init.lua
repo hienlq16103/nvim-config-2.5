@@ -179,7 +179,7 @@ return {
       cmdline = { enabled = false },
       completion = {
         accept = {
-          auto_brackets = { enabled = false }
+          auto_brackets = { enabled = false },
         },
         ghost_text = { enabled = true },
       },
@@ -194,7 +194,7 @@ return {
   },
   {
     "tronikelis/conflict-marker.nvim",
-    lazy = false,
+    lazy = true,
     opts = {
       highlights = true,
       on_attach = function(conflict)
@@ -214,7 +214,7 @@ return {
         mid = "^=======$",
         base = "^|||||||",
       },
-    }
+    },
   },
   {
     "L3MON4D3/LuaSnip",
@@ -225,25 +225,31 @@ return {
     end,
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
       completions = { blink = { enabled = true } },
     },
-    ft = {"markdown"}
+    ft = { "markdown" },
   },
   {
-    'barrett-ruth/live-server.nvim',
-    build = 'npm add -g live-server',
-    cmd = { 'LiveServerStart', 'LiveServerStop' },
-    config = true
+    "barrett-ruth/live-server.nvim",
+    build = "npm add -g live-server",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = true,
+  },
+  {
+    dir = "~\\source\\personal\\floating-cmd",
+    opts = {},
+    lazy = false,
+    cond = false,
   },
   {
     "khoido2003/roslyn-filewatch.nvim",
     config = function()
-      require("roslyn_filewatch").setup({})
+      require("roslyn_filewatch").setup {}
     end,
   },
   {
@@ -253,9 +259,9 @@ return {
         ["cs"] = {
           left = 'Debug.Log($"',
           right = '");',
-          mid_var = '{',
+          mid_var = "{",
           right_var = '}");',
-        }
+        },
       },
     },
     event = "User FilePost",
