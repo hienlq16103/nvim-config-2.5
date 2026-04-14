@@ -114,6 +114,7 @@ return {
     dependencies = {
       "igorlfs/nvim-dap-view",
       "theHamsta/nvim-dap-virtual-text",
+      "ownself/nvim-dap-unity",
     },
     config = function()
       require "configs.dap-configs"
@@ -142,6 +143,13 @@ return {
   {
     "theHamsta/nvim-dap-virtual-text",
     opts = {},
+  },
+  {
+    "ownself/nvim-dap-unity",
+    build = function()
+      -- make sure adapter to be installed properly
+      require("nvim-dap-unity").install()
+    end,
   },
   {
     "pteroctopus/faster.nvim",
