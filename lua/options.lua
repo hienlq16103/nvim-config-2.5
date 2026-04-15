@@ -1,7 +1,5 @@
 require "nvchad.options"
 
--- add yours here!
-
 local o = vim.o
 
 o.shell = 'pwsh'
@@ -11,6 +9,5 @@ o.shellquote = ''
 o.shellpipe = '| Out-File -Encoding UTF8 %s'
 o.shellredir = '| Out-File -Encoding UTF8 %s'
 o.winborder = 'rounded'
--- o.cursorlineopt ='both' -- to enable cursorline!
 
 vim.wo.relativenumber = true

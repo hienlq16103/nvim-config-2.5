@@ -3,7 +3,7 @@ local map = vim.keymap.set
 
 require("nvchad.configs.lspconfig").defaults()
 
-local on_attach_extended = function(_, bufnr)
+local on_attach_extended = function(_, _)
   map("n", "<leader>lf", function()
     vim.diagnostic.open_float { border = "rounded" }
   end)
