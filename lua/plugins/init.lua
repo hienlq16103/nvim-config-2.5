@@ -266,9 +266,8 @@ return {
   },
   {
     "khoido2003/roslyn-filewatch.nvim",
-    config = function()
-      require("roslyn_filewatch").setup {}
-    end,
+    build = "nvim -l build.lua --", -- Compiles or downloads the Native Rust module fallback
+    opts = {},
   },
   {
     "andrewferrier/debugprint.nvim",
