@@ -65,21 +65,17 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
     config = function()
       require "configs.indent-blankline"
     end,
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
-    lazy = false,
+    event = "User FilePost",
     submodules = false,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    opts = {},
-    ft = function()
-      return require "configs.nvim-ts-autotag-filetype"
-    end,
   },
   {
     "folke/which-key.nvim",
@@ -91,7 +87,7 @@ return {
   },
   {
     "cohama/lexima.vim",
-    lazy = false,
+    event = "User FilePost",
   },
   {
     "kkoomen/vim-doge",
@@ -120,9 +116,9 @@ return {
       require "configs.dap-configs"
     end,
     keys = {
-      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
-      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
-      { "<leader>dt", "<cmd>lua require('dap-view').toggle()<CR>" },
+      { "<F5>", function() require('dap').continue() end },
+      { "<leader>db", function() require('dap').toggle_breakpoint() end },
+      { "<leader>dt", function() require('dap-view').toggle() end },
     },
   },
   {
@@ -161,7 +157,7 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
     keys = {
-      { "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>" },
+      { "<leader>ut", function() require('undotree').toggle() end },
     },
   },
   {
