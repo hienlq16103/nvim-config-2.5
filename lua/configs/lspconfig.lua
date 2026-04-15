@@ -27,13 +27,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 local servers = {
   lua_ls = {},
   sqlls = {},
+  html = {},
   cssls = {},
-  texlab = {},
-  cmake = {},
-  vimls = {},
   markdown_oxide = {},
-  jdtls = {},
-  eslint = {},
   clangd = {},
   ts_ls = {},
   pylsp = {
