@@ -150,6 +150,7 @@ return {
       -- make sure adapter to be installed properly
       require("nvim-dap-unity").install()
     end,
+    opts = {},
   },
   {
     "pteroctopus/faster.nvim",
