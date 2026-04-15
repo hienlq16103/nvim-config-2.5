@@ -236,5 +236,29 @@ return {
     },
     event = "User FilePost",
     version = "*", -- Remove if you DON'T want to use the stable version
-  }
+  },
+  {
+    "tronikelis/conflict-marker.nvim",
+    lazy = true,
+    opts = {
+      highlights = true,
+      on_attach = function(conflict)
+        local MID = "^=======$"
+
+        vim.keymap.set("n", "[x", function()
+          vim.cmd("?" .. MID)
+        end, { buffer = conflict.bufnr })
+
+        vim.keymap.set("n", "]x", function()
+          vim.cmd("/" .. MID)
+        end, { buffer = conflict.bufnr })
+      end,
+      markers = {
+        start = "^<<<<<<<",
+        ending = "^>>>>>>>",
+        mid = "^=======$",
+        base = "^|||||||",
+      },
+    }
+  },
 }
