@@ -37,7 +37,7 @@ M.ui = {
 
 M.term = {
   winopts = { number = false },
-  sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
+  sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
   float = {
     row = 0.08, col = 0.04,
     width = 0.9, height = 0.8,
