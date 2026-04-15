@@ -19,3 +19,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 })
 
 -- vim.api.nvim_create_autocmd("FileType", { pattern = "qf", command = "wincmd J", group = lspAutoCmd })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "dap-view", "dap-view-term", "dap-repl" }, -- dap-repl is set by `nvim-dap`
+  callback = function(args)
+    vim.keymap.set("n", "q", "<C-w>q", { buffer = args.buf })
+  end,
+})

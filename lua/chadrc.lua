@@ -13,8 +13,13 @@ M.base46 = {
     NeogitDiffAddHighlight = { bg = "#3a4d45", fg = "#97b084" },
     NeogitDiffDeleteHighlight = { bg = "#5c3636", fg = "#9e5962" },
     NeogitDiffAddCursor = { bg = "#445b51", fg = "#97b084" },
-    NeogitDiffDeleteCursor = { bg = "#673d3d", fg = "#9e5962" }
+    NeogitDiffDeleteCursor = { bg = "#673d3d", fg = "#9e5962" },
+    NvimDapViewTab = { fg = "#abb2bf", bg = "#282c34" },
+    NvimDapViewTabSelected = { fg = "#98c379", bg = "#3e4452", bold = true },
+    NvimDapViewTabFill = { bg = "#1e222a" }
   },
+  hl_override = {
+  }
 }
 
 M.ui = {
@@ -22,23 +27,17 @@ M.ui = {
     lspkind_text = true,
     style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
   },
-  telescope = { style = "borderless" }, -- borderless / bordered
   statusline = {
     theme = "minimal",
     separator_style = "round",
   },
-}
-
-M.colorify = {
-  enabled = true,
-  mode = "virtual", -- fg, bg, virtual
-  virt_text = "󱓻 ",
-  highlight = { hex = true, lspvars = true },
+  telescope = { style = "borderless" },
+  -- borderless / bordered
 }
 
 M.term = {
   winopts = { number = false },
-  sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
+  sizes = { sp = 0.3, vsp = 0.3, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
   float = {
     row = 0.08, col = 0.04,
     width = 0.9, height = 0.8,

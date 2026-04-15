@@ -65,21 +65,17 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
     config = function()
       require "configs.indent-blankline"
     end,
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
-    lazy = false,
+    event = "User FilePost",
     submodules = false,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    opts = {},
-    ft = function()
-      return require "configs.nvim-ts-autotag-filetype"
-    end,
   },
   {
     "folke/which-key.nvim",
@@ -91,7 +87,7 @@ return {
   },
   {
     "cohama/lexima.vim",
-    lazy = false,
+    event = "User FilePost",
   },
   {
     "kkoomen/vim-doge",
@@ -110,29 +106,47 @@ return {
     },
   },
   {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio",
-    },
-    keys = {
-      { "<F5>", "<cmd>lua require('dap').continue()<CR>" },
-      { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>" },
-      { "<leader>dt", "<cmd>lua require('dapui').toggle({ reset = true })<CR>" },
-    },
-  },
-  {
     "mfussenegger/nvim-dap",
+    dependencies = {
+      "igorlfs/nvim-dap-view",
+      "theHamsta/nvim-dap-virtual-text",
+      "ownself/nvim-dap-unity",
+    },
     config = function()
       require "configs.dap-configs"
     end,
+    keys = {
+      { "<F5>", function() require('dap').continue() end },
+      { "<leader>db", function() require('dap').toggle_breakpoint() end },
+      { "<leader>dt", function() require('dap-view').toggle() end },
+    },
   },
   {
-    "aznhe21/actions-preview.nvim",
-    event = "LspAttach",
-    config = function()
-      vim.keymap.set({ "v", "n" }, "pa", require("actions-preview").code_actions)
+    "igorlfs/nvim-dap-view",
+    lazy = true,
+    version = "1.*",
+    ---@module 'dap-view'
+    ---@type dapview.Config
+    opts = {
+      winbar = {
+        sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "console" },
+        controls = {
+          enabled = true,
+        }
+      }
+    },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    opts = {},
+  },
+  {
+    "ownself/nvim-dap-unity",
+    build = function()
+      -- make sure adapter to be installed properly
+      require("nvim-dap-unity").install()
     end,
+    opts = {},
   },
   {
     "pteroctopus/faster.nvim",
@@ -143,7 +157,7 @@ return {
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
     keys = {
-      { "<leader>ut", "<cmd>lua require('undotree').toggle()<cr>" },
+      { "<leader>ut", function() require('undotree').toggle() end },
     },
   },
   {
@@ -176,13 +190,13 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      cmdline = { enabled = false },
       completion = {
         accept = {
           auto_brackets = { enabled = false },
         },
         ghost_text = { enabled = true },
       },
-      cmdline = { enabled = false },
     },
   },
   {
@@ -191,51 +205,6 @@ return {
     ---@module "quicker"
     ---@type quicker.SetupOptions
     opts = {},
-  },
-  {
-    "L3MON4D3/LuaSnip",
-    config = function(_, opts)
-      require("luasnip").config.set_config(opts)
-      require "nvchad.configs.luasnip"
-      require("luasnip").filetype_extend("cs", { "unity" })
-    end,
-  },
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {
-      completions = { blink = { enabled = true } },
-    },
-    ft = {"markdown"}
-  },
-  {
-    "khoido2003/roslyn-filewatch.nvim",
-    config = function()
-      require("roslyn_filewatch").setup({})
-    end,
-  },
-  {
-    'barrett-ruth/live-server.nvim',
-    build = 'pnpm add -g live-server',
-    cmd = { 'LiveServerStart', 'LiveServerStop' },
-    config = true
-  },
-  {
-    "andrewferrier/debugprint.nvim",
-    opts = {
-      filetypes = {
-        ["cs"] = {
-          left = 'Debug.Log($"',
-          right = '");',
-          mid_var = '{',
-          right_var = '}");',
-        }
-      },
-    },
-    event = "User FilePost",
-    version = "*", -- Remove if you DON'T want to use the stable version
   },
   {
     "tronikelis/conflict-marker.nvim",
@@ -259,6 +228,50 @@ return {
         mid = "^=======$",
         base = "^|||||||",
       },
-    }
+    },
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(_, opts)
+      require("luasnip").config.set_config(opts)
+      require "nvchad.configs.luasnip"
+      require("luasnip").filetype_extend("cs", { "unity" })
+    end,
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {
+      completions = { blink = { enabled = true } },
+    },
+    ft = { "markdown" },
+  },
+  {
+    "khoido2003/roslyn-filewatch.nvim",
+    build = "nvim -l build.lua --", -- Compiles or downloads the Native Rust module fallback
+    opts = {},
+  },
+  {
+    "barrett-ruth/live-server.nvim",
+    build = "pnpm add -g live-server",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = true,
+  },
+  {
+    "andrewferrier/debugprint.nvim",
+    opts = {
+      filetypes = {
+        ["cs"] = {
+          left = 'Debug.Log($"',
+          right = '");',
+          mid_var = "{",
+          right_var = '}");',
+        },
+      },
+    },
+    event = "User FilePost",
+    version = "*", -- Remove if you DON'T want to use the stable version
   },
 }

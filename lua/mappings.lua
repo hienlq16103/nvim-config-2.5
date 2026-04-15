@@ -1,12 +1,7 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
--- map("n", ";", ":", { desc = "CMD enter command mode" })
---map("i", "jk", "<ESC>")
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 map({ "n", "v" }, "<C-d>", "<C-d>zz")
 map({ "n", "v" }, "<C-u>", "<C-u>zz")
 map({ "n", "v" }, "n", "nzzzv")
@@ -19,9 +14,20 @@ map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
--- Neogit
-local neogit = require "neogit"
-map("n", "<leader>gs", neogit.open, { silent = true, noremap = true })
+local neogit = require("neogit")
+map("n", "<leader>gs", neogit.open)
+
+map({ "n", "v" }, "<RightMouse>", function()
+  require('menu.utils').delete_old_menus()
+
+  vim.cmd.exec '"normal! \\<RightMouse>"'
+
+  -- clicked buf
+  local buf = vim.api.nvim_win_get_buf(vim.fn.getmousepos().winid)
+  local options = vim.bo[buf].ft == "NvimTree" and "nvimtree" or "default"
+
+  require("menu").open(options, { mouse = true })
+end, {})
 
 local nomap = vim.keymap.del
 
