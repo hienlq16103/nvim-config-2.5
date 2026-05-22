@@ -12,3 +12,5 @@ o.shellredir = '| Out-File -Encoding UTF8 %s'
 o.winborder = 'rounded'
 
 vim.wo.relativenumber = true
+
+vim.g.health = { style = 'float' }
