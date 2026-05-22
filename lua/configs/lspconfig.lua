@@ -1,4 +1,5 @@
 local builtin = require "telescope.builtin"
+vim.lsp.codelens = require("configs.codelens")
 local map = vim.keymap.set
 
 require("nvchad.configs.lspconfig").defaults()
@@ -16,6 +17,8 @@ local on_attach_extended = function(_, bufnr)
   map("n", "<leader>sh", vim.lsp.buf.signature_help)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
   map("n", "gr", vim.lsp.buf.references)
+
+  vim.lsp.codelens.enable(true, {bufnr = 0})
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -32,17 +35,6 @@ local servers = {
   markdown_oxide = {},
   clangd = {},
   ts_ls = {},
-  pylsp = {
-    settings = {
-      pylsp = {
-        plugins = {
-          pycodestyle = {
-            ignore = { "E302", "E305", "E265", "E231", "E128", "E501" },
-          },
-        },
-      },
-    },
-  },
   taplo = {},
 }
 
