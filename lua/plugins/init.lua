@@ -91,7 +91,11 @@ return {
   },
   {
     "kkoomen/vim-doge",
+    init = function ()
+      vim.g.doge_mapping = "<leader>dj"
+    end,
     event = "User FilePost",
+    build = ":call doge#install()",
   },
   {
     "NeogitOrg/neogit",
