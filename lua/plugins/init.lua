@@ -173,13 +173,6 @@ return {
     ft = "cs",
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig
-    opts = {
-      filewatching = "roslyn",
-    },
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "khoido2003/roslyn-filewatch.nvim",
-    },
   },
   {
     "mason-org/mason.nvim",
@@ -261,11 +254,6 @@ return {
     opts = {},
     lazy = false,
     cond = false,
-  },
-  {
-    "khoido2003/roslyn-filewatch.nvim",
-    build = "nvim -l build.lua --", -- Compiles or downloads the Native Rust module fallback
-    opts = {},
   },
   {
     "andrewferrier/debugprint.nvim",
