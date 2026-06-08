@@ -173,6 +173,9 @@ return {
     ft = "cs",
     ---@module 'roslyn.config'
     ---@type RoslynNvimConfig
+    opts = {
+      filewatching = "roslyn",
+    },
   },
   {
     "mason-org/mason.nvim",

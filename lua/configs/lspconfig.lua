@@ -56,7 +56,4 @@ vim.lsp.config("roslyn", {
       dotnet_search_reference_assemblies = true,
     },
   },
-  on_attach = function(client, bufnr)
-    require("nvchad.configs.lspconfig").on_init(client, bufnr)
-  end,
 })
