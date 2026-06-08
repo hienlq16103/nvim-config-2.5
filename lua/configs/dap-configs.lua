@@ -1,5 +1,6 @@
 local dap = require "dap"
 local widgets = require('dap.ui.widgets')
+local dapview = require('dap-view')
 local map = vim.keymap.set
 
 -- Mapping
@@ -7,13 +8,13 @@ map("n", "<F10>", dap.step_over)
 map("n", "<F11>", dap.step_into)
 map("n", "<F12>", dap.step_out)
 map({'n', 'v'}, '<Leader>dh', function()
-  widgets.hover()
+  dapview.hover()
 end)
 map({'n', 'v'}, '<Leader>dp', function()
   widgets.preview()
 end)
 map({'n', 'v'}, '<Leader>dw', function()
-  require("dap-view").add_expr()
+  dapview.add_expr()
 end)
 
 -- Icon and highlight
