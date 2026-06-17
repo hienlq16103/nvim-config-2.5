@@ -203,30 +203,6 @@ return {
     opts = {},
   },
   {
-    "tronikelis/conflict-marker.nvim",
-    lazy = true,
-    opts = {
-      highlights = true,
-      on_attach = function(conflict)
-        local MID = "^=======$"
-
-        vim.keymap.set("n", "[x", function()
-          vim.cmd("?" .. MID)
-        end, { buffer = conflict.bufnr })
-
-        vim.keymap.set("n", "]x", function()
-          vim.cmd("/" .. MID)
-        end, { buffer = conflict.bufnr })
-      end,
-      markers = {
-        start = "^<<<<<<<",
-        ending = "^>>>>>>>",
-        mid = "^=======$",
-        base = "^|||||||",
-      },
-    },
-  },
-  {
     "L3MON4D3/LuaSnip",
     config = function(_, opts)
       require("luasnip").config.set_config(opts)
