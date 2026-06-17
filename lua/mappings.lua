@@ -8,6 +8,7 @@ map({ "n", "v" }, "n", "nzzzv")
 map({ "n", "v" }, "N", "Nzzzv")
 map({ "n", "v" }, "G", "Gzz")
 map("n", "<leader>", "")
+map("n", "<leader>dl", vim.diagnostic.setqflist, { desc = "global LSP diagnostic list" })
 
 map("v", "J", ":m '>+1<cr>gv=gv")
 map("v", "K", ":m '<-2<cr>gv=gv")
