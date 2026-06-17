@@ -98,7 +98,6 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = {
-      "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
     opts = {
@@ -156,8 +155,7 @@ return {
   },
   {
     "jiaoshijie/undotree",
-    dependencies = "nvim-lua/plenary.nvim",
-    config = true,
+    opts = {},
     keys = {
       { "<leader>ut", function() require('undotree').toggle() end },
     },
