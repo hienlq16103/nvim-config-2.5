@@ -255,7 +255,7 @@ return {
     opts = {
       filetypes = {
         ["cs"] = {
-          left = 'Debug.Log($"',
+          left = 'UnityEngine.Debug.Log($"',
           right = '");',
           mid_var = "{",
           right_var = '}");',
