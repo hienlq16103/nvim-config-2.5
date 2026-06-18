@@ -252,4 +252,8 @@ return {
       current_line_blame_formatter = '<author> [ <author_time:%I:%M %p - %d/%m/%Y> ] - <summary>',
     }
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = require("configs.telescope")
+  }
 }
