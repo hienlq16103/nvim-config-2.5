@@ -16,7 +16,7 @@ local on_attach_extended = function(_, _)
   map("n", "gi", vim.lsp.buf.implementation)
   map("n", "<leader>sh", vim.lsp.buf.signature_help)
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-  map("n", "gr", vim.lsp.buf.references)
+  map("n", "gr", vim.lsp.buf.references, { nowait = true })
 
   vim.lsp.codelens.enable(true, {bufnr = 0})
 end
