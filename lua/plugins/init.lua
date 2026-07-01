@@ -96,15 +96,8 @@ return {
     build = ":call doge#install()",
   },
   {
-    "NeogitOrg/neogit",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-    },
-    opts = {
-      integrations = {
-        telescope = true,
-      },
-    },
+    "tpope/vim-fugitive",
+    lazy = false,
   },
   {
     "mfussenegger/nvim-dap",
