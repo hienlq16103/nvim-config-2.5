@@ -36,6 +36,7 @@ local servers = {
   clangd = {},
   ts_ls = {},
   taplo = {},
+  rust_analyzer = {}
 }
 
 for name, opts in pairs(servers) do
