@@ -15,8 +15,7 @@ map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
-local neogit = require("neogit")
-map("n", "<leader>gs", neogit.open)
+map("n", "<leader>gs", "<cmd>Git<CR>");
 
 map({ "n", "v" }, "<RightMouse>", function()
   require('menu.utils').delete_old_menus()
