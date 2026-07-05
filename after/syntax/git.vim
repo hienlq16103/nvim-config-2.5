@@ -16,9 +16,17 @@ syn match gitHead 'HEAD ->' contained
 " Color the author/time section
 syn match gitAuthor '\[[^\]]*\]'
 
+" Color graph characters
+syn match gitGraphPipe '|'
+syn match gitGraphSlash '[/\\]'
+syn match gitGraphAsterisk '\*'
+
 " Highlight groups
 highlight link gitRef Identifier
 highlight link gitHead Number
 highlight link gitOriginRef Keyword
 highlight link gitLocalRef String
 highlight link gitAuthor Comment
+highlight link gitGraphPipe Number
+highlight link gitGraphSlash Number
+highlight link gitGraphAsterisk Special
