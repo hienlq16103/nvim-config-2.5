@@ -15,9 +15,6 @@ map("v", "K", ":m '<-2<cr>gv=gv")
 map("v", "<", "<gv", { desc = "Indent line" })
 map("v", ">", ">gv", { desc = "Indent line" })
 
-map("n", "<leader>gs", "<cmd>Git<CR>");
-map("n", "<leader>gl", '<cmd>Git log --all --abbrev=10 --pretty=format:"%h %d%n%s [%cn, %cr]%n" --graph<CR>')
-
 map({ "n", "v" }, "<RightMouse>", function()
   require('menu.utils').delete_old_menus()
 

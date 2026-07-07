@@ -97,8 +97,18 @@ return {
     build = ":call doge#install()",
   },
   {
-    "tpope/vim-fugitive",
-    lazy = false,
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+      "esmuellert/codediff.nvim",      -- optional
+      -- For a custom log pager
+      "m00qek/baleia.nvim",            -- optional
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gs", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+    },
   },
   {
     "mfussenegger/nvim-dap",

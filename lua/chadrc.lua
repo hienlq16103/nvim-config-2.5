@@ -8,6 +8,12 @@ M.base46 = {
   theme = "nightfox",
   transparency = true,
   hl_add = {
+    NeogitDiffAdd = { bg = "#3a4d45", fg = "#768a67" },
+    NeogitDiffDelete = { bg = "#5c3636", fg = "#8f5058" },
+    NeogitDiffAddHighlight = { bg = "#3a4d45", fg = "#97b084" },
+    NeogitDiffDeleteHighlight = { bg = "#5c3636", fg = "#9e5962" },
+    NeogitDiffAddCursor = { bg = "#445b51", fg = "#97b084" },
+    NeogitDiffDeleteCursor = { bg = "#673d3d", fg = "#9e5962" },
     NvimDapViewTab = { fg = "#abb2bf", bg = "#282c34" },
     NvimDapViewTabSelected = { fg = "#98c379", bg = "#3e4452", bold = true },
     NvimDapViewTabFill = { bg = "#1e222a" }
