@@ -175,14 +175,6 @@ return {
     opts = {
       filewatching = "roslyn",
     },
-    dependencies = {
-      "khoido2003/roslyn-filewatch.nvim",
-    }
-  },
-  {
-    "khoido2003/roslyn-filewatch.nvim",
-    build = "nvim -l build.lua --", -- Compiles or downloads the Native Rust module fallback
-    opts = {},
   },
   {
     "mason-org/mason.nvim",
