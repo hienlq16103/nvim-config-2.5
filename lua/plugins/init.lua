@@ -262,5 +262,14 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     opts = require("configs.telescope")
+  },
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = {
+      animate = {
+        enabled = false
+      },
+    },
+    event = { "WinLeave" },
   }
 }
