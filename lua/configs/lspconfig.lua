@@ -38,7 +38,6 @@ local servers = {
   html = {},
   ts_ls = {},
   cssls = {},
-  autohotkey_lsp = {},
 }
 
 for name, opts in pairs(servers) do
