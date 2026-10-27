@@ -164,10 +164,6 @@ return {
     },
   },
   {
-    "NvChad/base46",
-    branch = "v3.0",
-  },
-  {
     "seblyng/roslyn.nvim",
     ft = "cs",
     ---@module 'roslyn.config'
@@ -222,16 +218,6 @@ return {
       completions = { blink = { enabled = true } },
     },
     ft = { "markdown" },
-  },
-  {
-    "barrett-ruth/live-server.nvim",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-  },
-  {
-    dir = "~\\source\\personal\\floating-cmd",
-    opts = {},
-    lazy = false,
-    cond = false,
   },
   {
     "andrewferrier/debugprint.nvim",
