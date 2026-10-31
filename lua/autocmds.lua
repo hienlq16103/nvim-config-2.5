@@ -10,8 +10,6 @@ vim.api.nvim_create_user_command("DT", function()
   }
 end, { desc = "toggle diagnostic" })
 
--- vim.api.nvim_create_autocmd("FileType", { pattern = "qf", command = "wincmd J", group = lspAutoCmd })
-
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "dap-view", "dap-view-term", "dap-repl" }, -- dap-repl is set by `nvim-dap`
   callback = function(args)

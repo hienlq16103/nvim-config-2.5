@@ -14,7 +14,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "asm",
         "bash",
         "c",
         "c_sharp",
@@ -23,15 +22,11 @@ return {
         "cpp",
         "css",
         "csv",
-        "cuda",
         "git_config",
         "git_rebase",
         "gitattributes",
         "gitcommit",
         "gitignore",
-        "haskell",
-        "haskell_persistent",
-        "hjson",
         "html",
         "java",
         "javascript",
@@ -43,9 +38,6 @@ return {
         "make",
         "markdown",
         "markdown_inline",
-        "php",
-        "php_only",
-        "phpdoc",
         "python",
         "query",
         "regex",
@@ -165,10 +157,6 @@ return {
     },
   },
   {
-    "NvChad/base46",
-    branch = "v3.0",
-  },
-  {
     "seblyng/roslyn.nvim",
     ft = "cs",
     ---@module 'roslyn.config'
@@ -223,12 +211,6 @@ return {
       completions = { blink = { enabled = true } },
     },
     ft = { "markdown" },
-  },
-  {
-    "barrett-ruth/live-server.nvim",
-    build = "pnpm add -g live-server",
-    cmd = { "LiveServerStart", "LiveServerStop" },
-    config = true,
   },
   {
     "andrewferrier/debugprint.nvim",
