@@ -49,7 +49,8 @@ return {
         "vimdoc",
         "xml",
         "yaml",
-        "rust"
+        "rust",
+        "fish"
       },
     },
   },
