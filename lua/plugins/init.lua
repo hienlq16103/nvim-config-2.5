@@ -64,7 +64,6 @@ return {
     opts = {
      -- use https://github.com/rbong/flog-symbols as a font fallback
      graph_style = "kitty",
-     process_spinner = true,
      use_per_project_settings = false,
     }
   },
