@@ -37,8 +37,6 @@ local servers = {
   markdown_oxide = {},
   clangd = {},
   ts_ls = {},
-  taplo = {},
-  rust_analyzer = {},
   fish_lsp = {},
 }
 
